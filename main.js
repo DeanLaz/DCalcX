@@ -53,7 +53,7 @@ function inputMath(sign) {
       evalOperation.push(outputVal);
       let evaluation = eval(evalOperation.join(" "));
       outputVal = evaluation + " ";
-      //   output.innerHTML = outputVal;
+      output.innerHTML = outputVal;
       previous.innerHTML = evalOperation
         .join(" ")
         .slice(0, evalOperation.length + 5);
