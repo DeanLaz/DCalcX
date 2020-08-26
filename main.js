@@ -15,8 +15,8 @@ const multiply = document.getElementsByClassName(".multiply");
 const output = document.getElementById("current-output");
 const previous = document.getElementById("previous-output");
 
-let outputVal = 0;
-let currentOpertion;
+let outputVal = "";
+let currentOpertion = 0;
 let evalOperation = [];
 
 function inputNumber(number) {
@@ -25,7 +25,9 @@ function inputNumber(number) {
   }
   let numbers = number.value;
   output.innerHTML += numbers;
+  console.log(output.innerHTML, "innerHTML");
   outputVal += numbers;
+  console.log(outputVal, "outputVal");
 }
 
 function inputMath(sign) {
@@ -37,20 +39,28 @@ function inputMath(sign) {
       currentOperation = outputVal;
       outputVal = " ";
       output.innerHTML = outputVal;
-      evalOperation.push(currentOperation);
+      //   output.innerHTML = currentOpertion; //FIX
+      console.log(currentOperation);
+      evalOperation.push(currentOperation.slice(0, 20));
       evalOperation.push("+");
       previous.innerHTML = evalOperation
         .join(" ")
-        .slice(1, evalOperation.length + 3);
+        .slice(0, evalOperation.length + 5);
       console.log(evalOperation.join(" "));
       break;
     case "=":
+      console.log(outputVal, "output Val");
       evalOperation.push(outputVal);
       let evaluation = eval(evalOperation.join(" "));
       outputVal = evaluation + " ";
-      output.innerHTML = outputVal;
-      previous.innerHTML = " ";
+      //   output.innerHTML = outputVal;
+      previous.innerHTML = evalOperation
+        .join(" ")
+        .slice(0, evalOperation.length + 5);
       evalOperation = [];
+      previous.innerHTML = evalOperation
+        .join(" ")
+        .slice(0, evalOperation.length + 5);
       break;
   }
 }
