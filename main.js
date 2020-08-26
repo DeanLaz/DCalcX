@@ -13,7 +13,8 @@ const minus = document.getElementsByClassName(".minus");
 const divide = document.getElementsByClassName(".divided");
 const multiply = document.getElementsByClassName(".multiply");
 const output = document.getElementById("current-output");
-const previous = document.getElementById("previous-output");
+const history = document.getElementById("history-output");
+const decimal = document.getElementById("decimal");
 
 let outputVal = "";
 let currentOpertion = 0;
@@ -43,7 +44,7 @@ function inputMath(sign) {
       console.log(currentOperation);
       evalOperation.push(currentOperation.slice(0, 20));
       evalOperation.push("+");
-      previous.innerHTML = evalOperation
+      history.innerHTML = evalOperation
         .join(" ")
         .slice(0, evalOperation.length + 5);
       console.log(evalOperation.join(" "));
@@ -54,14 +55,32 @@ function inputMath(sign) {
       let evaluation = eval(evalOperation.join(" "));
       outputVal = evaluation + " ";
       output.innerHTML = outputVal;
-      previous.innerHTML = evalOperation
+      history.innerHTML = evalOperation
         .join(" ")
         .slice(0, evalOperation.length + 5);
       evalOperation = [];
-      previous.innerHTML = evalOperation
+      history.innerHTML = evalOperation
         .join(" ")
         .slice(0, evalOperation.length + 5);
       break;
+  }
+}
+
+function clearMath() {
+  outputVal = "";
+  output.innerHTML = 0;
+  history.innerHTML = "";
+  currentOpertion = 0;
+  evalOperation = [];
+}
+
+function inputDelete() {}
+
+function inputDecimal(decimals) {
+  let decimalx = decimals.value;
+  if (!output.innerHTML.includes(".")) {
+    output.innerHTML += decimalx;
+    outputVal += decimalx;
   }
 }
 
