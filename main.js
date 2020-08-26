@@ -27,7 +27,8 @@ function inputNumber(number) {
   let numbers = number.value;
   output.innerHTML += numbers;
   console.log(output.innerHTML, "innerHTML");
-  outputVal += numbers;
+  //   outputVal += numbers;
+  outputVal = output.innerHTML;
   console.log(outputVal, "outputVal");
 }
 
@@ -38,30 +39,27 @@ function inputMath(sign) {
   switch (operator) {
     case "+":
       currentOperation = outputVal;
-      outputVal = " ";
-      output.innerHTML = outputVal;
-      //   output.innerHTML = currentOpertion; //FIX
+      outputVal = "";
+      //   output.innerHTML = "0";
+      //   output.innerHTML = outputVal;
+      output.innerHTML = currentOpertion;
       console.log(currentOperation);
-      evalOperation.push(currentOperation.slice(0, 20));
+      evalOperation.push(currentOperation);
       evalOperation.push("+");
-      history.innerHTML = evalOperation
-        .join(" ")
-        .slice(0, evalOperation.length + 5);
-      console.log(evalOperation.join(" "));
+      history.innerHTML = evalOperation.join(" ");
       break;
     case "=":
       console.log(outputVal, "output Val");
       evalOperation.push(outputVal);
       let evaluation = eval(evalOperation.join(" "));
-      outputVal = evaluation + " ";
-      output.innerHTML = outputVal;
-      history.innerHTML = evalOperation
-        .join(" ")
-        .slice(0, evalOperation.length + 5);
+      outputVal = evaluation + "";
+      console.log(evaluation, "EVALULATION");
+      //   output.innerHTML = outputVal;
+      //   output.innerHTML = currentOpertion;
+      output.innerHTML = evaluation;
+      history.innerHTML = evalOperation.join(" ");
       evalOperation = [];
-      history.innerHTML = evalOperation
-        .join(" ")
-        .slice(0, evalOperation.length + 5);
+      history.innerHTML = evalOperation.join(" ");
       break;
   }
 }
@@ -74,7 +72,28 @@ function clearMath() {
   evalOperation = [];
 }
 
-function inputDelete() {}
+function inputDelete() {
+  let outputLength = outputVal.length;
+  if (
+    (output.innerHTML === "" && outputVal === "") ||
+    outputLength == 1 ||
+    outputLength == 0
+  ) {
+    output.innerHTML = "0";
+    outputVal = "0";
+    console.log(outputLength, "OUTPUT LENGTH");
+    console.log(outputVal, "outputVal on Delete");
+    console.log(output.innerHTML, "outputHTML on Delete");
+  } else {
+    console.log(outputLength, "OUTPUT LENGTH");
+    console.log(outputVal, "outputVal on Delete");
+    console.log(output.innerHTML, "outputHTML on Delete");
+    let deletedVal = outputVal.slice(0, outputLength - 1);
+    let deletedOutput = output.innerHTML.slice(0, outputLength - 1);
+    outputVal = deletedVal;
+    output.innerHTML = deletedOutput;
+  }
+}
 
 function inputDecimal(decimals) {
   let decimalx = decimals.value;
@@ -82,6 +101,7 @@ function inputDecimal(decimals) {
     output.innerHTML += decimalx;
     outputVal += decimalx;
   }
+  alert("Invalid Decimal");
 }
 
 // function inputNumber(number) {
