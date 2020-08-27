@@ -1,20 +1,26 @@
-// SELECTORS //
-const one = document.getElementsByClassName(".1");
-const two = document.getElementsByClassName(".2");
-const three = document.getElementsByClassName(".3");
-const four = document.getElementsByClassName(".4");
-const five = document.getElementsByClassName(".5");
-const six = document.getElementsByClassName(".6");
-const seven = document.getElementById("seven");
-const eight = document.getElementsByClassName(".8");
-const nine = document.getElementsByClassName(".9");
-const plus = document.getElementById("plus");
-const minus = document.getElementsByClassName(".minus");
-const divide = document.getElementsByClassName(".divided");
-const multiply = document.getElementsByClassName(".multiply");
+// NUMBER SELECTORS //
+const one = document.getElementsByClassName(".number");
+const two = document.getElementsByClassName(".number");
+const three = document.getElementsByClassName(".number");
+const four = document.getElementsByClassName(".number");
+const five = document.getElementsByClassName(".number");
+const six = document.getElementsByClassName(".number");
+const seven = document.getElementById(".number");
+const eight = document.getElementsByClassName(".number");
+const nine = document.getElementsByClassName(".number");
+const decimal = document.getElementById(".decimal");
+
+// OPERAND SELECTORS
+
+const plus = document.getElementByClassName(".operand");
+const minus = document.getElementsByClassName(".operand");
+const divide = document.getElementsByClassName(".operand");
+const multiply = document.getElementsByClassName(".operand");
+
+// DISPLAY SELECTORS
+
 const output = document.getElementById("current-output");
 const history = document.getElementById("history-output");
-const decimal = document.getElementById("decimal");
 
 let outputVal = "";
 let currentOpertion = 0;
