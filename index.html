@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="title"><h1>DCalcX</h1></div>
     <div class="container">
       <div class="calculator">
         <div class="calc-display">
           <div class="history-display">
-            <div id="history-output" class="history">Hist</div>
+            <div id="history-output" class="history"></div>
           </div>
           <div class="current-display">
             <div id="current-output" class="current">0</div>
@@ -20,7 +21,7 @@
         <div class="calc-buttons">
           <button class="clear" id="clear" onclick="clearMath(this)">AC</button>
           <button class="operand" id="delete" onclick="inputDelete(this)">
-            DEL
+            ⌫
           </button>
           <button
             class="operand"
@@ -28,7 +29,7 @@
             value="/"
             onclick="inputMath(this)"
           >
-            /
+            ÷
           </button>
           <button
             class="number"
@@ -55,7 +56,7 @@
             9
           </button>
           <button
-            class="number"
+            class="operand"
             id="operation"
             value="+"
             onclick="inputMath(this)"
@@ -126,6 +127,7 @@
           >
             *
           </button>
+          <button class="equal" value="=" onclick="inputMath(this)">=</button>
           <button
             class="number"
             id="number"
@@ -142,7 +144,6 @@
           >
             .
           </button>
-          <button class="equal" value="=" onclick="inputMath(this)">=</button>
         </div>
       </div>
     </div>
