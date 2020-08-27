@@ -20,7 +20,9 @@ h1 {
   color: white;
   text-align: center;
   font-size: 3rem;
-  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: 4px 3px 0px rgba(247, 0, 255, 0.178),
+    9px 8px 0px rgba(0, 0, 0, 0.15);
+  color: rgba(255, 255, 255, 0.87);
 }
 .calculator {
   border: 1px solid rgb(0, 0, 0);
