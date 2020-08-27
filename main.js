@@ -12,7 +12,7 @@ const decimal = document.getElementById(".decimal");
 
 // OPERAND SELECTORS
 
-const plus = document.getElementByClassName(".operand");
+const plus = document.getElementsByClassName(".operand");
 const minus = document.getElementsByClassName(".operand");
 const divide = document.getElementsByClassName(".operand");
 const multiply = document.getElementsByClassName(".operand");
@@ -21,6 +21,8 @@ const multiply = document.getElementsByClassName(".operand");
 
 const output = document.getElementById("current-output");
 const history = document.getElementById("history-output");
+
+// GLOBALS
 
 let outputVal = "";
 let currentOpertion = 0;
@@ -52,6 +54,39 @@ function inputMath(sign) {
       console.log(currentOperation);
       evalOperation.push(currentOperation);
       evalOperation.push("+");
+      history.innerHTML = evalOperation.join(" ");
+      break;
+    case "-":
+      currentOperation = outputVal;
+      outputVal = "";
+      //   output.innerHTML = "0";
+      //   output.innerHTML = outputVal;
+      output.innerHTML = currentOpertion;
+      console.log(currentOperation);
+      evalOperation.push(currentOperation);
+      evalOperation.push("-");
+      history.innerHTML = evalOperation.join(" ");
+      break;
+    case "/":
+      currentOperation = outputVal;
+      outputVal = "";
+      //   output.innerHTML = "0";
+      //   output.innerHTML = outputVal;
+      output.innerHTML = currentOpertion;
+      console.log(currentOperation);
+      evalOperation.push(currentOperation);
+      evalOperation.push("/");
+      history.innerHTML = evalOperation.join(" ");
+      break;
+    case "*":
+      currentOperation = outputVal;
+      outputVal = "";
+      //   output.innerHTML = "0";
+      //   output.innerHTML = outputVal;
+      output.innerHTML = currentOpertion;
+      console.log(currentOperation);
+      evalOperation.push(currentOperation);
+      evalOperation.push("*");
       history.innerHTML = evalOperation.join(" ");
       break;
     case "=":
