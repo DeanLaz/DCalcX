@@ -2,4 +2,5 @@
 
 Todo:
 
-1. Fix adding more numbers if there is no Operator pressed after already Pressing (=).
+1. Complete CSS
+2. Allow current output & history output to shrink if larger than display.
