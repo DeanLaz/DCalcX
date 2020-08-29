@@ -97,10 +97,23 @@ function inputMath(sign) {
       console.log(evaluation, "EVALULATION");
       //   output.innerHTML = outputVal;
       //   output.innerHTML = currentOpertion;
-      output.innerHTML = evaluation;
-      history.innerHTML = evalOperation.join(" ");
-      evalOperation = [];
-      history.innerHTML = evalOperation.join(" ");
+      if (evaluation === undefined) {
+        evaluation = 0;
+        history.innerHTML = "";
+        evalOperation = [];
+        currentOperation = 0;
+      } else if (evaluation === Infinity) {
+        evaluation = 0;
+        output.innerHTML = "Not A Number";
+        history.innerHTML = "";
+        evalOperation = [];
+        currentOperation = 0;
+      } else {
+        output.innerHTML = evaluation;
+        history.innerHTML = evalOperation.join(" ");
+        evalOperation = [];
+        history.innerHTML = evalOperation.join(" ");
+      }
       break;
   }
 }
@@ -142,7 +155,6 @@ function inputDecimal(decimals) {
     output.innerHTML += decimalx;
     outputVal += decimalx;
   }
-  alert("Invalid Decimal");
 }
 
 // function inputNumber(number) {
